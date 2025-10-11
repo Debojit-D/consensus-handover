@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>CONSENSUS-HANDOVER: SHORT PAPER TITLE HERE</title>
+  <title>Unified Sync–Async Coupled Dynamical Systems with Obstacle-Aware Modulation for Stable Bimanual Handover</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Late-Breaking Results: CONSENSUS-HANDOVER — short one-line summary.">
+  <meta name="description" content="Consensus-driven DS for dual-arm handover: phase-locked 6-DoF sync, obstacle-aware modulation, real-time, training-free control.">
   <link rel="icon" href="static/images/favicon.svg" type="image/svg+xml">
 
-  <!-- Bulma (minimal) -->
+  <!-- Bulma -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 
-  <!-- Open Graph / Twitter (nice link previews) -->
-  <meta property="og:title" content="CONSENSUS-HANDOVER: SHORT PAPER TITLE HERE">
-  <meta property="og:description" content="Late-Breaking Results: CONSENSUS-HANDOVER — short one-line summary.">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="CONSENSUS-HANDOVER — Unified Sync–Async Coupled DS for Stable Bimanual Handover">
+  <meta property="og:description" content="Phase-locked, consensus-driven DS for dual-arm handover with obstacle-aware modulation. Real-time, training-free control.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://consensus-handover.github.io/">
-  <meta property="og:image" content="static/images/poster.jpg">
+  <meta property="og:image" content="static/images/handover_snaps.png">
   <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -25,30 +25,30 @@
   <section class="hero is-light">
     <div class="hero-body">
       <div class="container has-text-centered">
-        <h1 class="title is-2">CONSENSUS-HANDOVER: FULL PAPER TITLE GOES HERE</h1>
-        <h2 class="subtitle is-4">Conference Name (Late-Breaking Results), YEAR</h2>
+        <h1 class="title is-2">CONSENSUS-HANDOVER</h1>
+        <h2 class="subtitle is-4">Unified Sync–Async Coupled Dynamical Systems with Obstacle-Aware Modulation for Stable Bimanual Handover</h2>
+        <p class="is-size-6 has-text-grey">IEEE-RAS Humanoids 2025 (Late-Breaking Results)</p>
 
         <!-- Authors -->
-        <div class="authors">
+        <div class="authors mt-4">
           <p class="is-5">
-            <span class="author">Author One<sup>1</sup></span>,
-            <span class="author">Author Two<sup>2</sup></span>,
-            <span class="author">Debojit Das<sup>1,3</sup></span>,
-            <span class="author">Author Four<sup>2</sup></span>
+            <span class="author">Debojit Das<sup>1,✉</sup></span>,
+            <span class="author">Barat S.<sup>1</sup></span>,
+            <span class="author">Rajesh Kumar<sup>2</sup></span>,
+            <span class="author">Harish J. Palanthandalam-Madapusi<sup>1</sup></span>
           </p>
           <p class="affiliations">
-            <sup>1</sup> IIT Gandhinagar &nbsp;&nbsp;
-            <sup>2</sup> Addverb Technologies &nbsp;&nbsp;
-            <sup>3</sup> Robotics Laboratory, IITGN
+            <sup>1</sup> IITGN Robotics Laboratory, Indian Institute of Technology Gandhinagar &nbsp;&nbsp;
+            <sup>2</sup> Addverb Technologies Limited
           </p>
         </div>
 
-        <!-- Links (PDF, Poster, Code) -->
-        <div class="buttons is-centered mt-4">
-          <a class="button is-primary is-light" href="static/consensus-handover-lbr.pdf" target="_blank" rel="noopener">📄 Paper (PDF)</a>
-          <a class="button is-link is-light" href="#poster">🖼️ Poster</a>
-          <!-- Optional: uncomment when ready -->
-          <!-- <a class="button is-dark is-light" href="https://github.com/consensus-handover" target="_blank" rel="noopener">💻 Code</a> -->
+        <!-- Links (PDFs, Attachments, Video anchor) -->
+        <div class="buttons is-centered mt-5">
+          <a class="button is-primary is-light" href="static/consensus-handover-lbr.pdf" target="_blank" rel="noopener">📄 LBR Paper (PDF)</a>
+          <a class="button is-link is-light" href="#attachments">📎 Attachments</a>
+          <a class="button is-dark is-light" href="#video">🎥 Supplementary Video</a>
+          <!-- <a class="button is-black is-light" href="https://github.com/consensus-handover" target="_blank" rel="noopener">💻 Code</a> -->
         </div>
 
       </div>
@@ -61,39 +61,98 @@
       <h3 class="title is-4">Abstract</h3>
       <div class="content">
         <p>
-          WRITE A 5–7 sentence abstract here: problem, key idea (consensus / progress clock / DS handover),
-          method in one sentence, what tasks/robots, and one-line takeaway. Keep it crisp for LBR.
+          Efficient, human-like object transfer between cooperating robots demands both spatial precision and tight temporal coordination.
+          Prior approaches often treat these requirements in isolation or rely on pre-computed trajectories that degrade under obstacles,
+          causing desynchronization. We present a unified, control-centric dynamical systems framework that blends
+          <em>asynchronous</em> unimanual motion with <em>coupled synchronous</em> dual-arm coordination via two scalar gates.
+          A shared consensus clock phase-locks translational progress and quaternion-log orientation so both arms converge to the same
+          6-DoF handover pose at the same instant. Translational velocities are modulated online with an obstacle-aware flow
+          that bends paths smoothly without re-planning. We validate on dual 6-DoF industrial arms and a humanoid platform,
+          demonstrating stable, real-time handovers that preserve spatial–temporal synchrony even when trajectories are locally deformed by obstacles.
         </p>
+      </div>
+
+      <!-- Demo images (numbered) right below the abstract -->
+      <div class="columns is-variable is-6 mt-5" id="demo-images">
+        <div class="column">
+          <figure class="image">
+            <img src="static/images/20250729_135436.jpg" alt="(1) Demo snapshot — initial/approach configuration">
+          </figure>
+          <p class="has-text-centered is-size-7 has-text-grey mt-2">(1) Demo snapshot</p>
+        </div>
+        <div class="column">
+          <figure class="image">
+            <img src="static/images/20250729_135744.jpg" alt="(2) Demo snapshot — handover/target configuration">
+          </figure>
+          <p class="has-text-centered is-size-7 has-text-grey mt-2">(2) Demo snapshot</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- (Optional) Teaser Video -->
-  <!--
-  <section class="section" id="teaser">
+  <!-- Video (after abstract) -->
+  <section class="section" id="video">
     <div class="container">
-      <h3 class="title is-4">Teaser</h3>
-      <video controls style="max-width: 100%; border-radius: 12px;">
-        <source src="static/images/teaser.mp4" type="video/mp4">
-      </video>
-      <p class="is-size-7 has-text-grey mt-2">Short caption about the demo.</p>
+      <h3 class="title is-4">Supplementary Video</h3>
+      <div class="video-container">
+        <div class="embed is-16by9">
+          <iframe
+            class="has-ratio"
+            width="640"
+            height="360"
+            src="https://www.youtube.com/embed/OhhLvkPUwhE"
+            title="CONSENSUS-HANDOVER — Supplementary Video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+      <p class="is-size-7 has-text-grey mt-2">Consensus-locked bimanual handover with obstacle-aware path modulation.</p>
     </div>
   </section>
-  -->
 
-  <!-- Poster -->
+  <!-- Concept / Results figures -->
+  <section class="section" id="concept-figures">
+    <div class="container">
+      <h3 class="title is-4">Concept Figures</h3>
+      <div class="columns is-variable is-6">
+        <div class="column">
+          <figure class="image">
+            <img src="static/images/handover_snaps.png" alt="Handover snapshots across phases">
+          </figure>
+          <p class="has-text-centered is-size-7 has-text-grey mt-2">Handover snapshots.</p>
+        </div>
+        <div class="column">
+          <figure class="image">
+            <img src="static/images/block_hand_over.png" alt="Block diagram of the handover DS framework">
+          </figure>
+          <p class="has-text-centered is-size-7 has-text-grey mt-2">Framework block diagram.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Poster (PDF only to avoid broken preview) -->
   <section class="section" id="poster">
     <div class="container">
       <h3 class="title is-4">Poster</h3>
       <p class="mb-3">
-        <a class="button is-link is-light" href="static/images/poster.jpg" target="_blank" rel="noopener">Open Poster</a>
-        <!-- Or, if you have a PDF poster, link it similarly -->
-        <!-- <a class="button is-link is-light" href="static/poster.pdf" target="_blank" rel="noopener">Open Poster (PDF)</a> -->
+        <a class="button is-link is-light" href="static/attachments/Humanoids2025LBRPoster-1-2.pdf" target="_blank" rel="noopener">Open Poster (PDF)</a>
       </p>
-      <figure class="image is-3by2 poster-frame">
-        <img src="static/images/poster.jpg" alt="Poster preview">
-      </figure>
-      <p class="is-size-7 has-text-grey mt-2">Tip: export poster as a 2000–3000px wide JPG/WebP for fast loading.</p>
+      <p class="is-size-7 has-text-grey">Tip: if you later export a JPG/WebP preview, you can add it here as an inline image.</p>
+    </div>
+  </section>
+
+  <!-- Attachments -->
+  <section class="section" id="attachments">
+    <div class="container">
+      <h3 class="title is-4">Attachments</h3>
+      <div class="buttons">
+        <a class="button is-primary is-light" href="static/consensus-handover-lbr.pdf" target="_blank" rel="noopener">📄 LBR Paper (PDF)</a>
+        <a class="button is-link is-light" href="static/attachments/USAC_DS_Framework_LBR_Humanoids.pdf" target="_blank" rel="noopener">📄 Manuscript (PDF)</a>
+        <a class="button is-link is-light" href="static/attachments/Humanoids2025LBRPoster-1-2.pdf" target="_blank" rel="noopener">🖼️ Poster (PDF)</a>
+      </div>
     </div>
   </section>
 
@@ -101,10 +160,10 @@
   <section class="section" id="bibtex">
     <div class="container">
       <h3 class="title is-4">BibTeX</h3>
-      <pre class="bibtex"><code>@inproceedings{consensus_handover_lbr_2025,
-  title     = {FULL PAPER TITLE},
-  author    = {Author One and Author Two and Debojit Das and Author Four},
-  booktitle = {Conference Name (Late-Breaking Results)},
+      <pre class="bibtex"><code>@inproceedings{Das2025ConsensusHandoverLBR,
+  title     = {Unified Sync--Async Coupled Dynamical Systems with Obstacle-Aware Modulation for Stable Bimanual Handover},
+  author    = {Das, Debojit and S., Barat and Kumar, Rajesh and Palanthandalam-Madapusi, Harish J.},
+  booktitle = {IEEE-RAS International Conference on Humanoid Robots (Late-Breaking Results)},
   year      = {2025},
   url       = {https://consensus-handover.github.io/}
 }</code></pre>
@@ -114,9 +173,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="content has-text-centered">
-      <p>
-        © 2025 CONSENSUS-HANDOVER Authors. Site uses <a href="https://bulma.io" target="_blank" rel="noopener">Bulma</a>.
-      </p>
+      <p>© 2025 CONSENSUS-HANDOVER Authors. Site uses <a href="https://bulma.io" target="_blank" rel="noopener">Bulma</a>.</p>
     </div>
   </footer>
 </body>
