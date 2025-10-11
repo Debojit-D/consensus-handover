@@ -1,157 +1,88 @@
-body {
-  font-family: 'Noto Sans', sans-serif;
+html, body {
+  scroll-behavior: smooth;
 }
 
-
-.footer .icon-link {
-    font-size: 25px;
-    color: #000;
+/* Authors & affiliations */
+.authors .author + .author::before {
+  content: " · ";
+  color: #999;
+}
+.affiliations {
+  margin-top: 0.25rem;
+  color: #555;
 }
 
-.link-block a {
-    margin-top: 5px;
-    margin-bottom: 5px;
+/* Poster & general images */
+.poster-frame img {
+  border-radius: 12px;
+  border: 1px solid #e9e9e9;
+}
+.image img {
+  border-radius: 12px;
 }
 
-.dnerf {
-  font-variant: small-caps;
+/* Code blocks (kept in case you add BibTeX later) */
+pre.bibtex {
+  padding: 1rem;
+  border-radius: 8px;
+  background: #f7f7f9;
+  overflow-x: auto;
+  border: 1px solid #eee;
 }
 
-
-.teaser .hero-body {
-  padding-top: 0;
-  padding-bottom: 3rem;
+/* Buttons: pill-shaped */
+.button {
+  border-radius: 999px;
 }
 
-.teaser {
-  font-family: 'Google Sans', sans-serif;
+/* ── Demo snapshots ~⅔ width inside their columns ───────────── */
+.demo-shot {
+  max-width: 66%;
+  margin: 0 auto;
+  display: block;
+}
+@media (max-width: 768px) {
+  .demo-shot { max-width: 100%; }
 }
 
-
-.publication-title {
-}
-
-.publication-banner {
-  max-height: parent;
-
-}
-
-.publication-banner video {
-  position: relative;
-  left: auto;
-  top: auto;
-  transform: none;
-  object-fit: fit;
-}
-
-.publication-header .hero-body {
-}
-
-.publication-title {
-    font-family: 'Google Sans', sans-serif;
-}
-
-.publication-authors {
-    font-family: 'Google Sans', sans-serif;
-}
-
-.publication-venue {
-    color: #555;
-    width: fit-content;
-    font-weight: bold;
-}
-
-.publication-awards {
-    color: #ff3860;
-    width: fit-content;
-    font-weight: bolder;
-}
-
-.publication-authors {
-}
-
-.publication-authors a {
-   color: hsl(204, 86%, 53%) !important;
-}
-
-.publication-authors a:hover {
-    text-decoration: underline;
-}
-
-.author-block {
+/* ── Logo sizing (prevents giant logos) ───────────────────────── */
+.partner-logo {
+  max-height: 56px;
+  width: auto;
+  height: auto;
   display: inline-block;
+  margin: 0 12px;
 }
 
-.publication-banner img {
+/* ── VIDEO: big, centered, perfect 16:9 ───────────────────────── */
+
+/* Wrap makes it full-width but capped and centered */
+.video-wrap {
+  max-width: 1400px;      /* adjust bigger/smaller if you want */
+  margin: 0 auto;
+  padding: 0 1rem;        /* small side padding on mobile */
 }
 
-.publication-authors {
-  /*color: #4286f4;*/
-}
-
-.publication-video {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
-
-    overflow: hidden;
-    border-radius: 10px !important;
-}
-
-.publication-video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.publication-body img {
-}
-
-.results-carousel {
+/* Classic responsive 16:9 box */
+.video-frame {
+  position: relative;
   overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
 }
-
-.results-carousel .item {
-  margin: 5px;
-  overflow: hidden;
-  border: 1px solid #bbb;
-  border-radius: 10px;
-  padding: 0;
-  font-size: 0;
+.video-frame.ratio-16x9::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;    /* 16:9 */
 }
-
-.results-carousel video {
-  margin: 0;
-}
-
-
-.interpolation-panel {
-  background: #f5f5f5;
-  border-radius: 10px;
-}
-
-.interpolation-panel .interpolation-image {
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  border-radius: 5px;
+  height: 100%;
+  border: 0;
 }
 
-.interpolation-video-column {
-}
-
-.interpolation-panel .slider {
-  margin: 0 !important;
-}
-
-.interpolation-panel .slider {
-  margin: 0 !important;
-}
-
-#interpolation-image-wrapper {
-  width: 100%;
-}
-#interpolation-image-wrapper img {
-  border-radius: 5px;
-}
+/* Subtle card-like lift for images */
+#demo-images .image { box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+#concept-figures .image { box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
