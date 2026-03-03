@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Unified Sync–Async Coupled Dynamical Systems with Obstacle-Aware Modulation for Stable Bimanual Handover</title>
+
+  <!-- Page Title -->
+  <title>Consensus Driven Dynamical Systems Control for Dual-Arm Handover (ICRA 2026)</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Consensus-driven DS for dual-arm handover: phase-locked 6-DoF sync, obstacle-aware modulation, real-time, training-free control.">
+  <meta name="description" content="Consensus-driven dynamical systems control for dual-arm handover: phase-locked 6-DoF synchrony with obstacle-aware modulation, real-time and training-free.">
+
   <link rel="icon" href="static/images/favicon.svg" type="image/svg+xml">
 
   <!-- Bulma -->
@@ -12,8 +16,8 @@
   <link rel="stylesheet" href="static/css/index.css">
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="CONSENSUS-HANDOVER — Unified Sync–Async Coupled DS for Stable Bimanual Handover">
-  <meta property="og:description" content="Phase-locked, consensus-driven DS for dual-arm handover with obstacle-aware modulation. Real-time, training-free control.">
+  <meta property="og:title" content="ICRA 2026 — Consensus Driven DS Control for Dual-Arm Handover">
+  <meta property="og:description" content="Phase-locked 6-DoF bimanual handover with a shared consensus clock and obstacle-aware DS modulation. Real-time, training-free control.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://consensus-handover.github.io/">
   <meta property="og:image" content="static/images/handover_snaps.png">
@@ -25,17 +29,19 @@
   <section class="hero is-light">
     <div class="hero-body">
       <div class="container has-text-centered">
-        <h1 class="title is-2">Unified Sync-Async Coupled Dynamical Systems Approach with Obstacle-Aware Modulation for Stable Bimanual Handover</h1>
-        <p class="is-size-6 has-text-grey">IEEE-RAS Humanoids 2025 (Late-Breaking Results) | Full Paper Version (Coming Soon)</p>
+
+        <h1 class="title is-2">Consensus Driven Dynamical Systems Control for Dual-Arm Handover</h1>
+        <p class="is-size-6 has-text-grey">IEEE ICRA 2026 (Accepted) • Project Page</p>
 
         <!-- Authors -->
         <div class="authors mt-4">
           <p class="is-5">
             <span class="author"><a href="https://www.debojit.in/" target="_blank" rel="noopener">Debojit Das</a><sup>1,✉</sup></span>,
-            <span class="author"><a href="https://sites.google.com/iitgn.ac.in/barat-suresh/home" target="_blank" rel="noopener">Barat S.</a><sup>1</sup></span>,
+            <span class="author"><a href="https://add your coauthor link here/" target="_blank" rel="noopener">Siddhi Jain</a><sup>2</sup></span>,
             <span class="author"><a href="https://www.linkedin.com/in/rajesh-kumar-7a4329109/" target="_blank" rel="noopener">Rajesh Kumar</a><sup>2</sup></span>,
             <span class="author"><a href="https://harish.people.iitgn.ac.in/" target="_blank" rel="noopener">Harish J. Palanthandalam-Madapusi</a><sup>1</sup></span>
           </p>
+
           <p class="affiliations">
             <sup>1</sup> <a href="https://research.iitgn.ac.in/robotics/" target="_blank" rel="noopener">IITGN Robotics Laboratory</a>, Indian Institute of Technology Gandhinagar &nbsp;&nbsp;
             <sup>2</sup> <a href="https://addverb.ai/" target="_blank" rel="noopener">Addverb Technologies Limited</a>
@@ -54,24 +60,31 @@
           </div>
         </div>
 
-        <!-- Links (PDFs, Attachments, Video anchor) -->
+        <!-- Quick Links -->
         <div class="buttons is-centered mt-5">
-          <a class="button is-primary is-light" href="static/attachments/USAC_DS_Framework_LBR_Humanoids.pdf" target="_blank" rel="noopener">📄 Late-Breaking Result Paper (PDF)</a>
-          <a class="button is-link is-light" href="static/attachments/Humanoids2025LBRPoster-1-2.pdf">📎 IEEE Humanaoids 2025 Poster</a>
+          <!-- Put your FINAL ICRA PDF at this path -->
+          <a class="button is-primary is-light" href="static/attachments/ICRA2026_Consensus_DS_DualArmHandover.pdf" target="_blank" rel="noopener">📄 Paper (PDF)</a>
+
+          <!-- Optional: keep Humanoids poster, or replace with ICRA poster/video -->
+          <a class="button is-link is-light" href="static/attachments/ICRA2026_Poster.pdf" target="_blank" rel="noopener">📎 Poster (PDF)</a>
+
           <a class="button is-dark is-light" href="#video">🎥 Supplementary Video</a>
+          <a class="button is-light" href="#framework">🧩 Framework</a>
+          <a class="button is-light" href="#results">📊 Results</a>
         </div>
 
       </div>
     </div>
   </section>
 
-  <section class="section" id="concept-figures">
+  <!-- Snapshot banner -->
+  <section class="section" id="snapshots">
     <div class="container">
-
-      <figure class="image mb-5">
+      <figure class="image mb-4">
         <img src="static/images/handover_snaps.png" alt="Handover snapshots across phases">
       </figure>
-      <p class="has-text-centered is-size-7 has-text-grey mb-6">Handover snapshots.</p>
+      <p class="has-text-centered is-size-7 has-text-grey">Snapshots across asynchronous pick-up, coupled synchronous handover, and asynchronous retreat.</p>
+    </div>
   </section>
 
   <!-- Abstract -->
@@ -80,36 +93,29 @@
       <h3 class="title is-4">Abstract</h3>
       <div class="content">
         <p>
-          Efficient, human-like object transfer between cooperating robots demands both spatial precision and tight temporal coordination.
-          Prior approaches often treat these requirements in isolation or rely on pre-computed trajectories that degrade under obstacles,
-          causing desynchronization. We present a unified, control-centric dynamical systems framework that blends
-          <em>asynchronous</em> unimanual motion with <em>coupled synchronous</em> dual-arm coordination via two scalar gates.
-          A shared consensus clock phase-locks translational progress and quaternion-log orientation so both arms converge to the same
-          6-DoF handover pose at the same instant. Translational velocities are modulated online with an obstacle-aware flow
-          that bends paths smoothly without re-planning. We validate on dual 6-DoF industrial arms and a upper torso dual-arm platform,
-          demonstrating stable, real-time handovers that preserve spatial–temporal synchrony even when trajectories are locally deformed by obstacles.
+          Robot bimanual handovers (transferring an object between two arms) require careful coordination of timing, motion, and obstacle avoidance. Efficient, human-like object transfer between cooperating robots demands both spatial and tight temporal coordination. Existing approaches treat these requirements in isolation or rely on pre-computed trajectories that fail when obstacles/disturbances appear, degrading performance, segmented behavior, and introducing desynchronization. This paper introduces a dynamical systems framework that transitions each arm from independent asynchronous motion to coupled synchronous coordination. In this context, coupling denotes both the spatial coordination of the arms and their temporal synchronization. The framework's coordination and synchrony are robust to obstacles/disturbances along its path. Experiments on an upper torso dual-arm platform and on traditional manipulators show seamless handovers that remain stable despite obstructions, always preserving spatial coordination and temporal synchrony.
         </p>
       </div>
 
-      <!-- Demo images (numbered) -->
+      <!-- Demo images -->
       <div class="columns is-variable is-6 mt-5" id="demo-images">
         <div class="column">
           <figure class="image">
-            <img class="demo-shot" src="static/images/20250729_135436.jpg" alt="(1) Demo snapshot — initial/approach configuration">
+            <img class="demo-shot" src="static/images/20250729_135436.jpg" alt="Demo snapshot — handover of box">
           </figure>
-          <p class="has-text-centered is-size-7 has-text-grey mt-2">(1) Demo snapshot</p>
+          <p class="has-text-centered is-size-7 has-text-grey mt-2">(a) Handing over a box</p>
         </div>
         <div class="column">
           <figure class="image">
-            <img class="demo-shot" src="static/images/20250729_135744.jpg" alt="(2) Demo snapshot — handover/target configuration">
+            <img class="demo-shot" src="static/images/20250729_135744.jpg" alt="Demo snapshot — handover of bottle">
           </figure>
-          <p class="has-text-centered is-size-7 has-text-grey mt-2">(2) Demo snapshot</p>
+          <p class="has-text-centered is-size-7 has-text-grey mt-2">(b) Handing over a bottle</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Video (full-width, fixed 16:9, big) -->
+  <!-- Video -->
   <section class="section" id="video">
     <div class="container">
       <h3 class="title is-4">Supplementary Video</h3>
@@ -118,7 +124,7 @@
         <div class="video-frame ratio-16x9">
           <iframe
             src="https://www.youtube.com/embed/OhhLvkPUwhE?rel=0&modestbranding=1"
-            title="CONSENSUS-HANDOVER — Supplementary Video"
+            title="ICRA 2026 — Dual-Arm Handover Supplementary Video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
           </iframe>
@@ -126,20 +132,43 @@
       </div>
 
       <p class="is-size-7 has-text-grey mt-2 has-text-centered">
-        Consensus-locked bimanual handover with obstacle-aware path modulation.
+        Phase-locked bimanual handover with obstacle-aware DS modulation.
       </p>
     </div>
   </section>
 
-  <!-- Concept / Results figures (VERTICALLY STACKED) -->
-  <section class="section" id="concept-figures">
+  <!-- Framework -->
+  <section class="section" id="framework">
     <div class="container">
       <h3 class="title is-4">Proposed Dynamical Systems Framework</h3>
 
       <figure class="image">
-        <img src="static/images/block_hand_over.png" alt="Block diagram of the handover DS framework">
+        <img src="static/images/block_hand_over.png" alt="Block diagram of the consensus-driven DS framework">
       </figure>
-      <p class="has-text-centered is-size-7 has-text-grey">Framework block diagram.</p>
+      <p class="has-text-centered is-size-7 has-text-grey">Consensus clock coupling translation and rotation, with obstacle-aware modulation in translation.</p>
+    </div>
+  </section>
+
+  <!-- Results (keep adding your key figures here) -->
+  <section class="section" id="results">
+    <div class="container">
+      <h3 class="title is-4">Key Results</h3>
+
+      <!-- Example: trajectories -->
+      <figure class="image mb-3">
+        <img src="static/images/trajectories.png" alt="End-effector trajectories for box and bottle handover">
+      </figure>
+      <p class="has-text-centered is-size-7 has-text-grey mb-6">
+        End-effector trajectories remain smooth and collision-free; coupling yields identical arrival times without idle hovering.
+      </p>
+
+      <!-- Example: ablation -->
+      <figure class="image mb-3">
+        <img src="static/images/ablation.png" alt="Ablation: no coupling baseline can fail due to temporal misalignment">
+      </figure>
+      <p class="has-text-centered is-size-7 has-text-grey">
+        Ablation (no coupling): temporal misalignment causes collisions; coupling restores phase-locked convergence.
+      </p>
     </div>
   </section>
 
@@ -148,13 +177,14 @@
     <div class="container">
       <h3 class="title is-4">Attachments</h3>
       <div class="buttons">
-        <a class="button is-primary is-light" href="static/attachments/USAC_DS_Framework_LBR_Humanoids.pdf" target="_blank" rel="noopener">📄 LBR Paper (PDF)</a>
-        <a class="button is-link is-light" href="static/attachments/Humanoids2025LBRPoster-1-2.pdf" target="_blank" rel="noopener">🖼️ Poster (PDF)</a>
+        <a class="button is-primary is-light" href="static/attachments/ICRA2026_Consensus_DS_DualArmHandover.pdf" target="_blank" rel="noopener">📄 Paper (PDF)</a>
+        <a class="button is-link is-light" href="static/attachments/ICRA2026_Poster.pdf" target="_blank" rel="noopener">🖼️ Poster (PDF)</a>
+        <a class="button is-light" href="static/attachments/ICRA2026_Supplementary_Material.zip" target="_blank" rel="noopener">📦 Supplementary (ZIP)</a>
       </div>
 
-      <article class="message is-warning mt-4">
+      <article class="message is-success mt-4">
         <div class="message-body">
-          <strong>Paper status:</strong> Under review (coming soon). A final citation and DOI will be added once available.
+          <strong>Status:</strong> Accepted at ICRA 2026. Camera-ready / DOI will be added once available.
         </div>
       </article>
     </div>
@@ -163,7 +193,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="content has-text-centered">
-      <p>© 2025 CONSENSUS-HANDOVER Authors. Site uses <a href="https://bulma.io" target="_blank" rel="noopener">Bulma</a>.</p>
+      <p>© 2026 CONSENSUS-HANDOVER Authors. Site uses <a href="https://bulma.io" target="_blank" rel="noopener">Bulma</a>.</p>
     </div>
   </footer>
 </body>
